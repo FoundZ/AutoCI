@@ -15,6 +15,23 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            applicationVariants.all {
+                variant ->
+                    variant.outputs.each {
+                        output ->
+                            def outputFile = output.outputFile
+                            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+
+                                // 控制输出apk 的存放地址
+                                if (project.hasProperty('OUT_PUT_DIR_PARA')) {
+                                    File output_dir1 = file("${OUT_PUT_DIR_PARA}");
+                                    output.outputFile = new File(output_dir1, fileName)
+                                    println "输出文件位置： " + output.outputFile
+                                }
+                            }
+                    }
+            }
         }
     }
 }
