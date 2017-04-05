@@ -25,6 +25,7 @@ android {
 
                                 // 控制输出apk 的存放地址
                                 if (project.hasProperty('OUT_PUT_DIR_PARA')) {
+                                    def fileName = "zsl_" + defaultConfig.versionName + "_${variant.buildType.name}.apk"
                                     File output_dir1 = file("${OUT_PUT_DIR_PARA}");
                                     output.outputFile = new File(output_dir1, fileName)
                                     println "输出文件位置： " + output.outputFile
