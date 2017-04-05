@@ -4,4 +4,4 @@
 
 #Master
 
-#更新 gradle 2017-4-5 17-08
+#更新 gradle 添加了gradle 打包apk路径配置  2017-4-5 17-08
